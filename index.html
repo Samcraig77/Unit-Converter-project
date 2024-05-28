@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Unit Converter</title>
+    <title>Unit Conversion</title>
 </head>
 <body>
     <div id="hero-section">
         <h1 id="title">Metric/Imperial Unit Converter</h1>
-       <div id="button-area">
-            <input id="amount" placeholder="Amount to convert">
-            <button type="button" id="submit-btn">Submit</button>
-       </div> 
+        <div id="button-area">
+           <input  type="number" id="amount" value="20" min="1">
+        </div> 
+        <button type="button" id="submit-btn">Convert</button>
     </div>
-    <script src="script.js"></script>
+    <div id="conversion-area">
+        <div id="length-div" class="conversion-type">
+                <h2>Length (Meter/Feet)</h2>
+                <p><span class="initial">20</span> meters = <span class="feet">65.616</span> feet | <span class="initial">20</span> feet = 6.096 meters</p>
+        </div>
+        <div id="volume-div" class="conversion-type">
+            <h2>Volume (Liters/Gallons)</h2>
+            <p><span class="initial">20</span> liters = <span class="gallons">5.284</span> gallons | <span class="initial">20</span> gallons = <span id="liters">75.708</span></p>
+        </div>
+        <div id="mass-div" class="conversion-type">
+            <h2>Mass (Kilograms/Pounds)</h2>
+            <p><span class="initial">20</span> kilos = <span class="pounds">44.092</span> pounds | <span class="initial">20</span> pounds = <span id="kilos">9.072</span> kilos</p>
+        </div>
+
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
