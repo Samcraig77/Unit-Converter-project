@@ -1,21 +1,46 @@
-const amount = document.getElementById("amount");
-const submitBtn = document.getElementById("submit-btn");
-const meters = document.getElementsById("meters");
-const feet = document.getElementsById("feet");
-const liters = document.getElementsById("liters");
-const gallons = document.getElementsById("gallons");
-const kilos = document.getElementsById("kilos");
-const pounds = document.getElementsById("pounds");
+const amount = document.getElementById("amount")
+const submitBtn = document.getElementById("submit-btn")
 const initialValue = document.getElementsByClassName("initial")
 
-// amount.addEventListener("change", function() {
-// amount.getValue()
-// console.log(amount);
-// })
+const measurments = [
+    {
+        name: "feet",       
+        conversion: 3.280839895013129 // <= feet = 1 meter
+    },
+    {
+        name: "meters",
+        conversion: 0.3048 // <= meters = 1 foot
+    },
+    {
+        name: "liters",
+        conversion: 3.785412 // <= liters = 1 gallon
 
-// amount.addEventListener("oninput", function() {
+    },
+    {
+        name: "gallons",
+        conversion: 0.264172037284185// <= gallons = 1 liter
+    },
+    {
+        name: "kilos",
+        conversion: 0.45359237  // <= pounds = 1 kilo
+    },
+    {
+        name: "pounds",
+        conversion: 2.20462262184878 // <= kilograms = 1 pound
+    }
 
-//     console.log(amount.value)
-//     return amount.value
-//     })
-    
+]
+
+submitBtn.addEventListener("click", function() {
+    let amountValue = parseInt(amount.value)
+    let unit = ""
+    let convert = ""
+
+    for (let i = 0; i < initialValue.length; i++) {
+        initialValue[i].innerHTML = amountValue 
+        unit = document.getElementById(measurments[i].name)
+        convert = (amountValue * measurments[i].conversion).toFixed(3)
+        unit.innerText = convert
+    }
+
+})
